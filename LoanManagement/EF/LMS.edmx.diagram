@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="273f8f4561b442b9ba47c58732b65c1f" Name="Diagram1">
+        <EntityTypeShape EntityType="LoanManagementModel.ApplicationFeedback" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LoanManagementModel.LoanApplication" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LoanManagementModel.LoanProduct" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LoanManagementModel.Reminder" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LoanManagementModel.User" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="LoanManagementModel.FK_ApplicationFeedback_LoanApplications" ManuallyRouted="false" />
+        <AssociationConnector Association="LoanManagementModel.FK_ApplicationFeedback_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="LoanManagementModel.FK_LoanApplications_LoanProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="LoanManagementModel.FK_LoanApplications_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="LoanManagementModel.FK_Reminders_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

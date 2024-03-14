@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LoanManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ApplicationFeedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationID" Type="int" Nullable="false" />
+    <Property Name="ApplicantID" Type="int" Nullable="false" />
+    <Property Name="FeedbackText" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateSubmitted" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoanApplications">
+    <Key>
+      <PropertyRef Name="ApplicationID" />
+    </Key>
+    <Property Name="ApplicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoanAmount" Type="float" Nullable="false" />
+    <Property Name="ApplicationStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AppliedDate" Type="datetime" Nullable="false" />
+    <Property Name="DecisionDate" Type="datetime" Nullable="false" />
+    <Property Name="ApplicantID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="DocumentUpload" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoanProducts">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InterestRate" Type="float" Nullable="false" />
+    <Property Name="TermMonths" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EligibilityCriteria" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reminders">
+    <Key>
+      <PropertyRef Name="ReminderID" />
+    </Key>
+    <Property Name="ReminderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReminderType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Message" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReminderDate" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactNumber" Type="int" Nullable="false" />
+    <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ApplicationFeedback_LoanApplications">
+    <End Role="LoanApplications" Type="Self.LoanApplications" Multiplicity="1" />
+    <End Role="ApplicationFeedback" Type="Self.ApplicationFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoanApplications">
+        <PropertyRef Name="ApplicationID" />
+      </Principal>
+      <Dependent Role="ApplicationFeedback">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationFeedback_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="ApplicationFeedback" Type="Self.ApplicationFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="ApplicationFeedback">
+        <PropertyRef Name="ApplicantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoanApplications_LoanProducts">
+    <End Role="LoanProducts" Type="Self.LoanProducts" Multiplicity="1" />
+    <End Role="LoanApplications" Type="Self.LoanApplications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoanProducts">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="LoanApplications">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoanApplications_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="LoanApplications" Type="Self.LoanApplications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="LoanApplications">
+        <PropertyRef Name="ApplicantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reminders_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Reminders" Type="Self.Reminders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Reminders">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LoanManagementModelStoreContainer">
+    <EntitySet Name="ApplicationFeedback" EntityType="Self.ApplicationFeedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoanApplications" EntityType="Self.LoanApplications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoanProducts" EntityType="Self.LoanProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reminders" EntityType="Self.Reminders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ApplicationFeedback_LoanApplications" Association="Self.FK_ApplicationFeedback_LoanApplications">
+      <End Role="LoanApplications" EntitySet="LoanApplications" />
+      <End Role="ApplicationFeedback" EntitySet="ApplicationFeedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationFeedback_Users" Association="Self.FK_ApplicationFeedback_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ApplicationFeedback" EntitySet="ApplicationFeedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoanApplications_LoanProducts" Association="Self.FK_LoanApplications_LoanProducts">
+      <End Role="LoanProducts" EntitySet="LoanProducts" />
+      <End Role="LoanApplications" EntitySet="LoanApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoanApplications_Users" Association="Self.FK_LoanApplications_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LoanApplications" EntitySet="LoanApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reminders_Users" Association="Self.FK_Reminders_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reminders" EntitySet="Reminders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
