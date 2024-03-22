@@ -36,6 +36,16 @@ namespace LoanManagement.Controllers
             TempData["Msg"] = "Invalid username and password";
             return RedirectToAction("Index");
         }
+        public ActionResult Registration(User u)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Users.Add(u);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
 
     }
 }
