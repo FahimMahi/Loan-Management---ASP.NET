@@ -1,0 +1,33 @@
+﻿@model IEnumerable<LoanManagement.DTOs.UserProfileDTO>
+
+@{
+    ViewBag.Title = "Applicant Profiles";
+}
+
+<h2>Applicant Profiles</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var applicant in Model)
+        {
+            <tr>
+                <td>@applicant.username</td>
+                <td>@applicant.FullName</td>
+                <td>@applicant.Email</td>
+                <td>@applicant.ContactNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Back to Dashboard", "LoanOfficerDashboard", "LoanOfficer", null, new { @class = "btn btn-info" })
+</div>

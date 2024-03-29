@@ -251,6 +251,12 @@
     <Content Include="Views\Home\EditProfile.cshtml" />
     <Content Include="Views\LoanOfficer\LoanOfficerDashboard.cshtml" />
     <Content Include="Views\Application\ReviewApplications.cshtml" />
+    <Content Include="Views\Applicant\ApplicantProfiles.cshtml" />
+    <Content Include="Views\LoanProduct\ManageLoanProducts.cshtml" />
+    <Content Include="Views\LoanProduct\CreateLoanProduct.cshtml" />
+    <Content Include="Views\LoanProduct\EditLoanProduct.cshtml" />
+    <Content Include="Views\LoanProduct\DeleteLoanProduct.cshtml" />
+    <Content Include="Views\LoanProduct\DeleteConfirmed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

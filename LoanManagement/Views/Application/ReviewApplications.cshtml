@@ -27,13 +27,16 @@
                 <td>@app.ProductID</td>
                 <td>@app.ApplicationStatus</td>
                 <td>
-                    @using (Html.BeginForm("ApproveApplication", "Application", new { applicationID = app.ApplicationID }, FormMethod.Post))
+                    @if (app.ApplicationStatus == "Pending")
                     {
-                        <input type="submit" value="Approve" class="btn btn-success" />
-                    }
-                    @using (Html.BeginForm("RejectApplication", "Application", new { applicationID = app.ApplicationID }, FormMethod.Post))
-                    {
-                        <input type="submit" value="Reject" class="btn btn-danger" />
+                        using (Html.BeginForm("ApproveApplication", "Application", new { applicationID = app.ApplicationID }, FormMethod.Post))
+                        {
+                            <input type="submit" value="Approve" class="btn btn-success" />
+                        }
+                        using (Html.BeginForm("RejectApplication", "Application", new { applicationID = app.ApplicationID }, FormMethod.Post))
+                        {
+                            <input type="submit" value="Reject" class="btn btn-danger" />
+                        }
                     }
                 </td>
             </tr>

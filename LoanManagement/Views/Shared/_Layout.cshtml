@@ -15,7 +15,49 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    @{
 
+                        if (Session["userID"] != null)
+                        {
+
+                            if (Session["Role"] != null)
+                            {
+                                @*if (Session["Role"].Equals("Admin"))
+                                {
+                                    <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                }*@
+                                if (Session["Role"].Equals("Loan Officer"))
+                                {
+                                    <li>@Html.ActionLink("Loan Officer Dashboard", "LoanOfficerDashboard", "LoanOfficer", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Review Applications", "ReviewApplications", "Application", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Applicant Profiles", "ApplicantProfiles", "Applicant", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Manage Loan Products", "ManageLoanProducts", "LoanProduct", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                }
+
+                                if (Session["Role"].Equals("Applicant"))
+                                {
+                                    <li>@Html.ActionLink("Applicant Dashboard", "ApplicantDashboard", "Applicant", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("My Applications", "MyApplications", "Application", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("View Loan Product", "ViewLoanProduct", "LoanProduct", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Apply Application", "ApplyApplication", "Application", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Edit Profile", "EditProfile", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            <li>@Html.ActionLink("Home", "HomePage", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Register", "Register", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        }
+                    }
+                </ul>
+            </div>
         </div>
     </nav>
     <div class="container body-content">

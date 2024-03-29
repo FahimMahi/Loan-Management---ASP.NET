@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LoanManagement.DTOs;
+using LoanManagement.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +11,6 @@ namespace LoanManagement.Controllers
     public class ApplicantController : Controller
     {
         // GET: Applicant
-        public ActionResult Index()
-        {
-            return View();
-        }
         public ActionResult ApplicantDashboard()
         {
             if (Session["userID"] == null)
@@ -30,6 +28,27 @@ namespace LoanManagement.Controllers
                 return RedirectToAction("Login", "Home");
             }
             return View();
+        }
+        public ActionResult ApplicantProfiles()
+        {
+            LoanManagementEntities db = new LoanManagementEntities();
+            if (Session["userID"] == null || Session["Role"].ToString() != "Loan Officer")
+            {
+                return RedirectToAction("Login", "Home"); 
+            }
+
+            var applicants = db.Users
+                               .Select(user => new UserProfileDTO
+                               {
+                                   userID = user.userID,
+                                   username = user.username,
+                                   FullName = user.FullName,
+                                   Email = user.Email,
+                                   ContactNumber = user.ContactNumber,
+                               })
+                               .ToList();
+
+            return View(applicants);
         }
 
     }

@@ -11,6 +11,21 @@ namespace LoanManagement.Controllers
         // GET: LoanManager
         public ActionResult LoanOfficerDashboard()
         {
+            if (Session["userID"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            if (Session["Role"] != null && Session["Role"].ToString() != "Loan Officer")
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
             return View();
         }
 
