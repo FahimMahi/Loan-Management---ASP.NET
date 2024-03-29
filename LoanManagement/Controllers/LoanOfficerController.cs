@@ -6,12 +6,13 @@ using System.Web.Mvc;
 
 namespace LoanManagement.Controllers
 {
-    public class LoanController : Controller
+    public class LoanOfficerController : Controller
     {
         // GET: LoanManager
-        public ActionResult Index()
+        public ActionResult LoanOfficerDashboard()
         {
             return View();
         }
+
     }
 }

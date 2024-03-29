@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LoanManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LoanManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ApplicationFeedback">
           <Key>
             <PropertyRef Name="FeedbackID" />
@@ -23,10 +23,9 @@
           <Property Name="LoanAmount" Type="float" Nullable="false" />
           <Property Name="ApplicationStatus" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AppliedDate" Type="datetime" Nullable="false" />
-          <Property Name="DecisionDate" Type="datetime" Nullable="false" />
+          <Property Name="DecisionDate" Type="datetime" />
           <Property Name="ApplicantID" Type="int" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="DocumentUpload" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="LoanProducts">
           <Key>
@@ -149,8 +148,7 @@
             <End Role="Reminders" EntitySet="Reminders" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LoanManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -174,10 +172,9 @@
           <Property Name="LoanAmount" Type="Double" Nullable="false" />
           <Property Name="ApplicationStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AppliedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DecisionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DecisionDate" Type="DateTime" Precision="3" />
           <Property Name="ApplicantID" Type="Int32" Nullable="false" />
           <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="DocumentUpload" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ApplicationFeedbacks" Relationship="Self.FK_ApplicationFeedback_LoanApplications" FromRole="LoanApplications" ToRole="ApplicationFeedback" />
           <NavigationProperty Name="LoanProduct" Relationship="Self.FK_LoanApplications_LoanProducts" FromRole="LoanApplications" ToRole="LoanProducts" />
           <NavigationProperty Name="User" Relationship="Self.FK_LoanApplications_Users" FromRole="LoanApplications" ToRole="Users" />
@@ -335,7 +332,6 @@
                 <ScalarProperty Name="DecisionDate" ColumnName="DecisionDate" />
                 <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="DocumentUpload" ColumnName="DocumentUpload" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

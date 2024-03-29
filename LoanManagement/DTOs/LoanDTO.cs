@@ -11,12 +11,6 @@ namespace LoanManagement.DTOs
         [Required]
         public double LoanAmount { get; set; }
         [Required]
-        public string ApplicationStatus { get; set; }
-        [Required]
-        public int ApplicantID { get; set; }
-        [Required]
         public int ProductID { get; set; }
-        [Required]
-        public string DocumentUpload { get; set; }
     }
 }

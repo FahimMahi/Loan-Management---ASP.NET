@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LoanManagement.DTOs.LoanApplicationDTO>
+@{
+    ViewBag.Title = "ReviewApplications";
+}
+
+
+<h2>Review Loan Applications</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Application ID</th>
+            <th>Loan Amount</th>
+            <th>Applied Date</th>
+            <th>Product ID</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var app in Model)
+        {
+            <tr>
+                <td>@app.ApplicationID</td>
+                <td>@app.LoanAmount</td>
+                <td>@app.AppliedDate.ToString("dd/MM/yyyy")</td>
+                <td>@app.ProductID</td>
+                <td>@app.ApplicationStatus</td>
+                <td>
+                    @using (Html.BeginForm("ApproveApplication", "Application", new { applicationID = app.ApplicationID }, FormMethod.Post))
+                    {
+                        <input type="submit" value="Approve" class="btn btn-success" />
+                    }
+                    @using (Html.BeginForm("RejectApplication", "Application", new { applicationID = app.ApplicationID }, FormMethod.Post))
+                    {
+                        <input type="submit" value="Reject" class="btn btn-danger" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (TempData["Msg"] != null)
+{
+    <div style="color: green;">@TempData["Msg"]</div>
+}
+
+
+<div>
+    @Html.ActionLink("Back to Dashboard", "LoanOfficerDashboard", "LoanOfficer", null, new { @class = "btn btn-info" })
+</div>

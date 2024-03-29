@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "ApplicantDashboard";
+}
+
+<h2>Welcome to Your Applicant Dashboard!</h2>
+
+<div class="jumbotron">
+    <h3>Your Loan Applications</h3>
+    <p>Here you can find the status of your applications.</p>
+    <p><a href="@Url.Action("MyApplications", "Application")" class="btn btn-primary btn-lg" role="button">View My Applications</a></p>
+</div>
+
+<div class="jumbotron">
+    <h3>View Loan Product</h3>
+    <p>Here you can View Loan Product List.</p>
+    <p><a href="@Url.Action("ViewLoanProduct", "LoanProduct")" class="btn btn-primary btn-lg" role="button">View My Applications</a></p>
+</div>
+
+<div class="jumbotron">
+    <h3>Apply Loan Application</h3>
+    <p>Browse available Loan and submit your application.</p>
+    <p><a href="@Url.Action("ApplyApplication", "Application")" class="btn btn-primary btn-lg" role="button">Apply Loan Application</a></p>
+</div>
+
+<div class="jumbotron">
+    <h3>Edit Profile</h3>
+    <p>Update your profile to ensure your information is current.</p>
+    <p><a href="@Url.Action("EditProfile", "Home")" class="btn btn-primary btn-lg" role="button">Edit My Profile</a></p>
+</div>
+
+<div class="jumbotron">
+    <h3>Logout</h3>
+    <p>Click the button below to log out of your account.</p>
+    <p><a href="@Url.Action("Logout", "Home")" class="btn btn-danger btn-lg" role="button">Logout</a></p>
+</div>

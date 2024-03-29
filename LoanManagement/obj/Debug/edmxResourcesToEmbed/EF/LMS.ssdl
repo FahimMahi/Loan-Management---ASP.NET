@@ -18,10 +18,9 @@
     <Property Name="LoanAmount" Type="float" Nullable="false" />
     <Property Name="ApplicationStatus" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="AppliedDate" Type="datetime" Nullable="false" />
-    <Property Name="DecisionDate" Type="datetime" Nullable="false" />
+    <Property Name="DecisionDate" Type="datetime" />
     <Property Name="ApplicantID" Type="int" Nullable="false" />
     <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="DocumentUpload" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="LoanProducts">
     <Key>

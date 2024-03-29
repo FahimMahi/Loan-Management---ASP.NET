@@ -1,0 +1,57 @@
+﻿@model IEnumerable<LoanManagement.DTOs.LoanApplicationDTO>
+
+@{
+    ViewBag.Title = "MyApplications";
+}
+
+<h2>MyApplications</h2>
+@functions {
+    public string GetStatusClass(string status)
+    {
+        switch (status)
+        {
+            case "Pending":
+                return "text-primary";
+            case "Approved":
+                return "text-success";
+            case "Rejected":
+                return "text-danger";
+            default:
+                return "";
+        }
+    }
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Application ID</th>
+            <th>Loan Amount</th>
+            <th>Applied Date</th>
+            <th>Decision Date</th>
+            <th>Status</th>
+            <th>Product</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var app in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => app.ApplicationID)</td>
+                <td>@Html.DisplayFor(modelItem => app.LoanAmount)</td>
+                <td>@Html.DisplayFor(modelItem => app.AppliedDate)</td>
+                <td>@Html.DisplayFor(modelItem => app.DecisionDate)</td>
+                <td class="@GetStatusClass(app.ApplicationStatus)">
+                    @Html.DisplayFor(modelItem => app.ApplicationStatus)
+                </td>
+                <td>@Html.DisplayFor(modelItem => app.ProductID)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<div>
+    @Html.ActionLink("Back to Dashboard", "ApplicantDashboard", "Applicant", null, new { @class = "btn btn-info" })
+</div>

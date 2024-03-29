@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LoanManagement.DTOs.LoanProductDTO>
+
+@{
+    ViewBag.Title = "ViewLoanProduct";
+}
+
+<h2>ViewLoanProduct</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TermMonths)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EligibilityCriteria)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InterestRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TermMonths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EligibilityCriteria)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Dashboard", "ApplicantDashboard", "Applicant", null, new { @class = "btn btn-info" })
+</div>

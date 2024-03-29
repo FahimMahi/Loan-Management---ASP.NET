@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "LoanOfficerDashboard";
+}
+
+<h2>Welcome to Your Loan Officer Dashboard!</h2>
+
+<div class="jumbotron">
+    <h3>Review Applications</h3>
+    <p>Here you can review new loan applications and update their status.</p>
+    <p><a href="@Url.Action("ReviewApplications", "Application")" class="btn btn-primary btn-lg" role="button">Review Applications</a></p>
+</div>
+
+<div class="jumbotron">
+    <h3>Applicant Profiles</h3>
+    <p>View details of loan applicants.</p>
+    <p><a href="@Url.Action("ApplicantProfiles", "LoanOfficer")" class="btn btn-primary btn-lg" role="button">View Applicant Profiles</a></p>
+</div>
+
+<div class="jumbotron">
+    <h3>Manage Loan Products</h3>
+    <p>Update terms and conditions of loan products.</p>
+    <p><a href="@Url.Action("ManageLoanProducts", "LoanProduct")" class="btn btn-primary btn-lg" role="button">Manage Loan Products</a></p>
+</div>
+
+<div class="jumbotron">
+    <h3>Logout</h3>
+    <p>Click the button below to securely log out of your dashboard.</p>
+    <p><a href="@Url.Action("Logout", "Home")" class="btn btn-danger btn-lg" role="button">Logout</a></p>
+</div>

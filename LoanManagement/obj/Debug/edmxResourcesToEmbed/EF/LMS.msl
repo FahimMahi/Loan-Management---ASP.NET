@@ -22,7 +22,6 @@
           <ScalarProperty Name="DecisionDate" ColumnName="DecisionDate" />
           <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="DocumentUpload" ColumnName="DocumentUpload" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,4 +1,5 @@
-﻿using LoanManagement.EF;
+﻿using LoanManagement.DTOs;
+using LoanManagement.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,40 @@ namespace LoanManagement.Controllers
         {
             return View();
         }
-        public ActionResult List() {
-            var db = new LoanManagementEntities();
-            var users = (from u in db.Users
-                         select u).ToList();
-            return View(users);
+
+        public ActionResult ViewLoanProduct()
+        {
+            if (Session["userID"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            if (Session["Role"] != null && Session["Role"].ToString() != "Applicant")
+            {
+                return RedirectToAction("Login", "Home"); 
+            }
+
+            LoanManagementEntities db = new LoanManagementEntities();
+
+            var loanProducts = db.LoanProducts
+                                 .Select(lp => new LoanProductDTO
+                                 {
+                                     ProductID = lp.ProductID,
+                                     ProductName = lp.ProductName,
+                                     InterestRate = lp.InterestRate,
+                                     TermMonths = lp.TermMonths,
+                                     EligibilityCriteria = lp.EligibilityCriteria
+                                 })
+                                 .ToList();
+
+            return View(loanProducts); 
         }
+
+
     }
 }

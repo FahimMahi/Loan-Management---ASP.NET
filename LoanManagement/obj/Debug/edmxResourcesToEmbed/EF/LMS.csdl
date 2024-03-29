@@ -20,10 +20,9 @@
     <Property Name="LoanAmount" Type="Double" Nullable="false" />
     <Property Name="ApplicationStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="AppliedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DecisionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DecisionDate" Type="DateTime" Precision="3" />
     <Property Name="ApplicantID" Type="Int32" Nullable="false" />
     <Property Name="ProductID" Type="Int32" Nullable="false" />
-    <Property Name="DocumentUpload" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="ApplicationFeedbacks" Relationship="Self.FK_ApplicationFeedback_LoanApplications" FromRole="LoanApplications" ToRole="ApplicationFeedback" />
     <NavigationProperty Name="LoanProduct" Relationship="Self.FK_LoanApplications_LoanProducts" FromRole="LoanApplications" ToRole="LoanProducts" />
     <NavigationProperty Name="User" Relationship="Self.FK_LoanApplications_Users" FromRole="LoanApplications" ToRole="Users" />

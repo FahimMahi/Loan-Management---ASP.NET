@@ -128,13 +128,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ApplicantController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoanController.cs" />
+    <Compile Include="Controllers\LoanOfficerController.cs" />
     <Compile Include="Controllers\LoanProductController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="DTOs\LoanApplicationDTO.cs" />
     <Compile Include="DTOs\LoanDTO.cs" />
+    <Compile Include="DTOs\LoanProductDTO.cs" />
     <Compile Include="DTOs\LoginDTO.cs" />
+    <Compile Include="DTOs\ReminderDTO.cs" />
     <Compile Include="DTOs\UserDTO.cs" />
+    <Compile Include="DTOs\UserProfileDTO.cs" />
     <Compile Include="EF\ApplicationFeedback.cs">
       <DependentUpon>LMS.tt</DependentUpon>
     </Compile>
@@ -235,16 +240,21 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\LoanProduct\List.cshtml" />
-    <Content Include="Views\Login\Registration.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Applicant\ApplicantDashboard.cshtml" />
+    <Content Include="Views\LoanProduct\ViewLoanProduct.cshtml" />
+    <Content Include="Views\Application\ApplyApplication.cshtml" />
+    <Content Include="Views\Application\MyApplications.cshtml" />
+    <Content Include="Views\Home\Logout.cshtml" />
+    <Content Include="Views\Home\EditProfile.cshtml" />
+    <Content Include="Views\LoanOfficer\LoanOfficerDashboard.cshtml" />
+    <Content Include="Views\Application\ReviewApplications.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Loan\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

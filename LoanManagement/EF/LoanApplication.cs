@@ -24,10 +24,9 @@ namespace LoanManagement.EF
         public double LoanAmount { get; set; }
         public string ApplicationStatus { get; set; }
         public System.DateTime AppliedDate { get; set; }
-        public System.DateTime DecisionDate { get; set; }
+        public Nullable<System.DateTime> DecisionDate { get; set; }
         public int ApplicantID { get; set; }
         public int ProductID { get; set; }
-        public string DocumentUpload { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ApplicationFeedback> ApplicationFeedbacks { get; set; }
