@@ -89,6 +89,8 @@ namespace LoanManagement.Controllers
                 db.Users.Add(user);
                 db.SaveChanges();
 
+                TempData["Msg"] = "Applicant Registered Succesfully";
+
                 return RedirectToAction("Login");
             }
 
@@ -163,6 +165,8 @@ namespace LoanManagement.Controllers
 
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
+
+                TempData["Msg"] = "Profile Edited Succesfully";
 
                 switch (user.Role)
                 {

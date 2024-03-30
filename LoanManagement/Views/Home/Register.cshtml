@@ -43,6 +43,11 @@
     <button type="submit" class="btn btn-primary">Register</button>
 }
 
+@if (TempData["Msg"] != null)
+{
+    <div style="color: green;">@TempData["Msg"]</div>
+}
+
 <div>
     @Html.ActionLink("Back to Login", "Login")
 </div>

@@ -46,6 +46,11 @@
     </div>
 }
 
+@if (TempData["Msg"] != null)
+{
+    <div style="color: green;">@TempData["Msg"]</div>
+}
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

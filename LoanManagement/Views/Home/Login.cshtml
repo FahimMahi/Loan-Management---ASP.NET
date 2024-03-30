@@ -37,7 +37,10 @@
         </div>
     </div>
 }
-
+@if (TempData["Msg"] != null)
+{
+    <div style="color: red;">@TempData["Msg"]</div>
+}
 <div>
     @Html.ActionLink("Back to Register", "Register")
 </div>

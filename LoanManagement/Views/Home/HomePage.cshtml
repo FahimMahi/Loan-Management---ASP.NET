@@ -3,5 +3,28 @@
     ViewBag.Title = "HomePage";
 }
 
-<h2>HomePage</h2>
+<div class="container" style="margin-top: 50px;">
+    <div class="jumbotron text-center">
+        <h1>Welcome to Our Loan Management System</h1>
+        <p>This system streamlines the process of applying for and managing loans.</p>
+    </div>
 
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Easy Application</h2>
+            <p>Apply for loans with ease using our streamlined application process. Get quick decisions and manage your loan entirely online.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Manage Loans</h2>
+            <p>Keep track of your loan status, payment schedules, and any outstanding balances all in one place.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Support</h2>
+            <p>Our dedicated support team is here to help you with any questions or issues you may encounter.</p>
+        </div>
+    </div>
+
+    <div class="text-center" style="margin-top: 20px;">
+        <a href="@Url.Action("Register", "Home")" class="btn btn-primary btn-lg">Register Here</a>
+    </div>
+</div>

@@ -58,7 +58,7 @@ namespace LoanManagement.Controllers
 
                 db.LoanApplications.Add(newApplication);
                 db.SaveChanges();
-
+                TempData["Msg"] = "Application Applied Succesfully";
                 return RedirectToAction("MyApplications");
             }
 

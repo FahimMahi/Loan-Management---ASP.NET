@@ -31,7 +31,7 @@
                 @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -41,7 +41,10 @@
     </div>
 }
 <br />
-
+@if (TempData["Msg"] != null)
+{
+    <div style="color: green;">@TempData["Msg"]</div>
+}
 <div>
     @Html.ActionLink("Back to Dashboard", "ApplicantDashboard", "Applicant", null, new { @class = "btn btn-info" })
 </div>
